@@ -2,12 +2,31 @@ import os
 import sys
 import argparse
 import logging
+import platform
 from time import strftime, localtime
 
+# TODO: Check OS and add Mac\Linux Support
+operating_system = platform.system()
 
-DEFAULT_SCREENSHOT_LOCATION = os.environ.get("USERPROFILE") + "\\Pictures\\Screenshots"
-DEFAULT_LOGGING_DIRECTORY = os.environ.get("HOMEDRIVE") + "\\Screenshot Organizer\\Log"
-DEFAULT_LOGGING_FILE = os.environ.get("HOMEDRIVE") + "\\Screenshot Organizer\\Log\\log.log"
+switch(operating_system):
+    case 'Windows':
+        DEFAULT_SCREENSHOT_LOCATION = os.environ.get(
+            "USERPROFILE") + "\\Pictures\\Screenshots"
+        DEFAULT_LOGGING_DIRECTORY = os.environ.get(
+            "HOMEDRIVE") + "\\Screenshot Organizer\\Log"
+        DEFAULT_LOGGING_FILE = os.environ.get(
+            "HOMEDRIVE") + "\\Screenshot Organizer\\Log\\log.log"
+    case 'Darwin':
+         DEFAULT_SCREENSHOT_LOCATION =
+        DEFAULT_LOGGING_DIRECTORY = 
+        DEFAULT_LOGGING_FILE = 
+
+    case 'Linux':
+        DEFAULT_SCREENSHOT_LOCATION = 
+        DEFAULT_LOGGING_DIRECTORY = 
+        DEFAULT_LOGGING_FILE = 
+    case _:
+        print("Unable to Detect OS")
 
 logger = logging.getLogger(__name__)
 
