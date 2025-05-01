@@ -3,7 +3,7 @@ import platform
 
 OPERATING_SYSTEM = platform.system()
 
-switch(OPERATING_SYSTEM):
+match(OPERATING_SYSTEM):
     case 'Windows':
         DEFAULT_SCREENSHOT_LOCATION = os.environ.get(
             "USERPROFILE") + "\\Pictures\\Screenshots"
@@ -12,13 +12,9 @@ switch(OPERATING_SYSTEM):
         DEFAULT_LOGGING_FILE = os.environ.get(
             "HOMEDRIVE") + "\\Screenshot Organizer\\Log\\log.log"
     case 'Darwin':
-        DEFAULT_SCREENSHOT_LOCATION =
-        DEFAULT_LOGGING_DIRECTORY =
-        DEFAULT_LOGGING_FILE =
+        DEFAULT_SCREENSHOT_LOCATION = os.environ.get("HOME") + "/Desktop"
+        DEFAULT_LOGGING_DIRECTORY = '~/var/log/ScreenshotOrganizer'
+        DEFAULT_LOGGING_FILE = '~/var/log/ScreenshotOrganizer/ScreenshotOrganizer.log'
 
-    case 'Linux':
-        DEFAULT_SCREENSHOT_LOCATION =
-        DEFAULT_LOGGING_DIRECTORY =
-        DEFAULT_LOGGING_FILE =
     case _:
         print("Unable to Detect OS")

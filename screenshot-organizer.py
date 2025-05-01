@@ -5,7 +5,6 @@ import logging
 from time import strftime, localtime
 
 import globals
-
 logger = logging.getLogger(__name__)
 
 if not os.path.exists(globals.DEFAULT_LOGGING_DIRECTORY):
