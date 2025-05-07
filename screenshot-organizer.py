@@ -5,12 +5,16 @@ import logging
 from time import strftime, localtime
 
 import globals
+
+# TODO: Refactor out the windows logic to a separate file and have a file per OS
 logger = logging.getLogger(__name__)
 
 if not os.path.exists(globals.DEFAULT_LOGGING_DIRECTORY):
     os.makedirs(globals.DEFAULT_LOGGING_DIRECTORY)
 
 logging.basicConfig(filename=globals.DEFAULT_LOGGING_FILE, level=logging.INFO)
+
+operating_system = globals.OPERATING_SYSTEM
 
 
 def get_last_file_modified(path):
